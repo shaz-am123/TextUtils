@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from "react-router-dom";
+// import {
+//     BrowserRouter as Router,
+//     Routes,
+//     Route,
+//     Link
+//   } from "react-router-dom";
 import './App.css'
-import About from './components/About';
+// import About from './components/About';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
 import Alert from './components/Alert';
@@ -31,7 +31,7 @@ function App(){
          {
             setMode('dark')
             document.body.style.backgroundColor="rgb(16, 38, 74)";
-            document.body.style.color="white";
+            document.body.style.color="rgb(130, 129, 129)";
             document.title='TextUtils - dark mode'
             showAlert("Dark mode is enabled", "success")
          }
@@ -47,7 +47,12 @@ function App(){
 
     return(
         <>
-        <Router>
+            <Navbar title='TextUtils' about="About TextUtils" mode={mode} changeMode={changeMode}/>
+            <Alert alert={alert} mode={mode}/>
+            <div className='container'>
+                <TextForm heading="Enter Text to be manipulated" showAlert={showAlert} mode={mode}/>
+            </div>
+        {/* <Router>
             <Navbar title='TextUtils' about="About TextUtils" mode={mode} changeMode={changeMode}/>
             <Alert alert={alert} mode={mode}/>
             <br />
@@ -57,7 +62,7 @@ function App(){
                     </div>} />
                 <Route exact path="/about" element={<About mode={mode}/>} />
             </Routes>
-        </Router>
+        </Router> */}
         </>
     )
 }
