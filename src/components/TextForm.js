@@ -22,7 +22,7 @@ export default function TextForm(props) {
             <div className='container'>
                 <h2>{props.heading}</h2>
                 <div className="mb-3">
-                    <textarea onChange={event=>setText(event.target.value)} style={{backgroundColor: props.mode==='dark'?'#212529':'white', color: 'white'}} className="form-control" aria-label="With textarea" rows='8' value={text}></textarea>
+                    <textarea onChange={event=>setText(event.target.value)} style={{backgroundColor: props.mode==='dark'?'#212529':'white', color: props.mode==='dark'?'white':'black'}} className="form-control" aria-label="With textarea" rows='8' value={text}></textarea>
                 </div>
                 <button onClick={()=>setText(text.toUpperCase())} className={`btn btn-${props.mode==='light'?'dark':'light'}`}>Convert to uppercase</button>
                 <button onClick={()=>setText(text.toLowerCase())} className={`btn btn-${props.mode==='light'?'dark':'light'}`}>Convert to lowercase</button>
